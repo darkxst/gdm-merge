@@ -1,0 +1,2 @@
+debian/tmp/usr/bin/gdmflexiserver
+debian/tmp/usr/lib/*/libgdm.so.*
