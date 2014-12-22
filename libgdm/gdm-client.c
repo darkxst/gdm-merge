@@ -104,8 +104,6 @@ on_got_manager (GdmManager          *manager,
         }
 
         g_simple_async_result_complete_in_idle (operation_result);
-        g_object_unref (operation_result);
-        g_object_unref (client);
 }
 
 static void
@@ -128,7 +126,6 @@ get_manager (GdmClient           *client,
                                                            (GDestroyNotify)
                                                            g_object_unref);
                 g_simple_async_result_complete_in_idle (result);
-                g_object_unref (result);
                 return;
         }
 
@@ -154,7 +151,6 @@ on_user_verifier_proxy_created (GObject            *source,
         if (user_verifier == NULL) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -165,24 +161,20 @@ on_user_verifier_proxy_created (GObject            *source,
                                                    (GDestroyNotify)
                                                    g_object_unref);
         g_simple_async_result_complete_in_idle (operation_result);
-        g_object_unref (operation_result);
 }
 
 static void
-on_reauthentication_channel_connected (GObject            *source_object,
+on_reauthentication_channel_connected (GDBusConnection    *connection,
                                        GAsyncResult       *result,
                                        GSimpleAsyncResult *operation_result)
 {
-        GDBusConnection *connection;
         GCancellable *cancellable;
         GError       *error;
 
         error = NULL;
-        connection = g_dbus_connection_new_for_address_finish (result, &error);
-        if (!connection) {
+        if (!g_dbus_connection_new_for_address_finish (result, &error)) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -195,7 +187,6 @@ on_reauthentication_channel_connected (GObject            *source_object,
                                      (GAsyncReadyCallback)
                                      on_user_verifier_proxy_created,
                                      operation_result);
-        g_object_unref (connection);
 }
 
 static void
@@ -214,7 +205,6 @@ on_reauthentication_channel_opened (GdmManager         *manager,
                                                                     &error)) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -242,7 +232,6 @@ on_got_manager_for_reauthentication (GdmClient           *client,
                                                    &error)) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -314,19 +303,17 @@ gdm_client_open_connection_sync (GdmClient      *client,
 }
 
 static void
-on_connected (GObject            *source_object,
+on_connected (GDBusConnection    *connection,
               GAsyncResult       *result,
               GSimpleAsyncResult *operation_result)
 {
-        GDBusConnection *connection;
         GError *error;
 
         error = NULL;
-        connection = g_dbus_connection_new_for_address_finish (result, &error);
-        if (!connection) {
+        if (!g_dbus_connection_new_for_address_finish (result,
+                                                       &error)) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -335,8 +322,6 @@ on_connected (GObject            *source_object,
                                                    (GDestroyNotify)
                                                    g_object_unref);
         g_simple_async_result_complete_in_idle (operation_result);
-        g_object_unref (operation_result);
-        g_object_unref (connection);
 }
 
 static void
@@ -357,8 +342,6 @@ on_session_opened (GdmManager         *manager,
                                                    &error)) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
-                g_object_unref (client);
                 return;
         }
 
@@ -370,7 +353,6 @@ on_session_opened (GdmManager         *manager,
                                            (GAsyncReadyCallback)
                                            on_connected,
                                            operation_result);
-        g_object_unref (client);
 }
 
 static void
@@ -386,7 +368,6 @@ on_got_manager_for_opening_connection (GdmClient           *client,
                                                    &error)) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -465,7 +446,6 @@ gdm_client_open_connection (GdmClient           *client,
                                                        (GDestroyNotify)
                                                        g_object_unref);
             g_simple_async_result_complete_in_idle (operation_result);
-            g_object_unref (operation_result);
             return;
         }
 
@@ -705,7 +685,6 @@ on_connection_opened_for_user_verifier (GdmClient          *client,
         if (!gdm_client_open_connection_finish (client, result, &error)) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -756,7 +735,6 @@ gdm_client_get_user_verifier (GdmClient           *client,
                                                            (GDestroyNotify)
                                                            g_object_unref);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -847,7 +825,6 @@ on_greeter_proxy_created (GObject            *source,
         if (greeter == NULL) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -856,7 +833,6 @@ on_greeter_proxy_created (GObject            *source,
                                                    (GDestroyNotify)
                                                    g_object_unref);
         g_simple_async_result_complete_in_idle (operation_result);
-        g_object_unref (operation_result);
 
         query_for_timed_login_requested_signal (greeter);
 }
@@ -873,7 +849,6 @@ on_connection_opened_for_greeter (GdmClient          *client,
         if (!gdm_client_open_connection_finish (client, result, &error)) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -924,7 +899,6 @@ gdm_client_get_greeter (GdmClient           *client,
                                                            (GDestroyNotify)
                                                            g_object_unref);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -1047,7 +1021,6 @@ on_remote_greeter_proxy_created (GObject            *object,
         if (remote_greeter == NULL) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -1056,7 +1029,6 @@ on_remote_greeter_proxy_created (GObject            *object,
                                                    (GDestroyNotify)
                                                    g_object_unref);
         g_simple_async_result_complete_in_idle (operation_result);
-        g_object_unref (operation_result);
 }
 
 static void
@@ -1071,7 +1043,6 @@ on_connection_opened_for_remote_greeter (GdmClient          *client,
         if (!gdm_client_open_connection_finish (client, result, &error)) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -1122,7 +1093,6 @@ gdm_client_get_remote_greeter (GdmClient           *client,
                                                            (GDestroyNotify)
                                                            g_object_unref);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -1242,7 +1212,6 @@ on_chooser_proxy_created (GObject            *source,
         if (chooser == NULL) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -1251,7 +1220,6 @@ on_chooser_proxy_created (GObject            *source,
                                                    (GDestroyNotify)
                                                    g_object_unref);
         g_simple_async_result_complete_in_idle (operation_result);
-        g_object_unref (operation_result);
 }
 
 static void
@@ -1266,7 +1234,6 @@ on_connection_opened_for_chooser (GdmClient          *client,
         if (!gdm_client_open_connection_finish (client, result, &error)) {
                 g_simple_async_result_take_error (operation_result, error);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
@@ -1317,7 +1284,6 @@ gdm_client_get_chooser (GdmClient           *client,
                                                            (GDestroyNotify)
                                                            g_object_unref);
                 g_simple_async_result_complete_in_idle (operation_result);
-                g_object_unref (operation_result);
                 return;
         }
 
