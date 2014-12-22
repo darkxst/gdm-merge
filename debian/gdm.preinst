@@ -9,6 +9,24 @@ if [ "$1" = "install" -o "$1" = "upgrade" ] && [ -n "$2" ] &&
     fi
 fi
 
+#clean up old dconf conffiles
+if [ "$1" = "upgrade" ] || [ "$1" = "install" ]; then      
+    #remove if empty
+    dist_settings=/etc/dconf/db/gdm.d/90-debian-settings
+    if [ -f $dist_settings ] && ! egrep -q '\[.*\]' $dist_settings; then
+        rm -f $dist_settings
+    fi
+
+    rm_conffile /etc/dconf/db/gdm.d/00-upstream-settings
+    rm_conffile /etc/dconf/db/gdm.d/locks/00-upstream-settings-locks
+    rm_conffile /etc/dconf/profile/gdm
+fi
+
+if dpkg-maintscript-helper supports rm_conffile 2>/dev/null; then
+    dpkg-maintscript-helper rm_conffile /etc/X11/Xsession.d/60xdg_path-on-session 3.0.4-0ubuntu4 -- "$@"
+fi
+
+
 #DEBHELPER#
 
 exit 0
