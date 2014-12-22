@@ -25,8 +25,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gdm\n"
-"Report-Msgid-Bugs-To: gdm@packages.debian.org\n"
+"Project-Id-Version: gdm3\n"
+"Report-Msgid-Bugs-To: gdm3@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-11 23:23+0200\n"
 "PO-Revision-Date: 2014-08-01 04:05+0200\n"
 "Last-Translator: Mert Dirik <mertdirik@gmail.com>\n"
@@ -39,13 +39,13 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../gdm.templates:2001
+#: ../gdm3.templates:2001
 msgid "Default display manager:"
 msgstr "Öntanımlı ekran yöneticisi:"
 
 #. Type: select
 #. Description
-#: ../gdm.templates:2001
+#: ../gdm3.templates:2001
 msgid ""
 "A display manager is a program that provides graphical login capabilities "
 "for the X Window System."
@@ -54,7 +54,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../gdm.templates:2001
+#: ../gdm3.templates:2001
 msgid ""
 "Only one display manager can manage a given X server, but multiple display "
 "manager packages are installed. Please select which display manager should "
@@ -66,7 +66,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../gdm.templates:2001
+#: ../gdm3.templates:2001
 msgid ""
 "Multiple display managers can run simultaneously if they are configured to "
 "manage different servers; to achieve this, configure the display managers "
