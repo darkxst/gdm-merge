@@ -28,18 +28,11 @@ DEB_CONFIGURE_EXTRA_FLAGS += --enable-ipv6=yes \
 		--with-default-path=/usr/local/bin:/usr/bin:/bin:/usr/games \
 		--with-custom-conf=/etc/gdm/daemon.conf \
 		--with-sysconfsubdir=gdm \
-		--with-working-directory=/var/lib/gdm \
-		--with-xauth-dir=/var/run/gdm \
-		--with-pid-file=/var/run/gdm.pid \
-		--with-log-dir=/var/log/gdm \
-		--with-screenshot-dir=/var/run/gdm/greeter \
 		--with-defaults-conf=/usr/share/gdm/defaults.conf \
-		--with-user=gdm --with-group=gdm \
 		--with-lang-file=/etc/default/locale \
 		--disable-split-authentication \
 		--with-consolekit-directory=/usr/lib/ConsoleKit \
 		--with-check-accelerated-directory=/usr/lib/gnome-session/ \
-		--with-ran-once-marker-directory=/var/run/gdm \
 		--with-gnome-settings-daemon-directory="`pkg-config --variable=libexecdir gnome-settings-daemon`" \
 		--with-initial-vt=7
 
@@ -65,12 +58,10 @@ DEB_MAKE_EXTRA_ARGS += authdir=/var/lib/gdm
 		
 ifeq (linux,$(DEB_HOST_ARCH_OS))
 	DEB_CONFIGURE_EXTRA_FLAGS += --with-plymouth
-else
-	DEB_CONFIGURE_EXTRA_FLAGS += --with-vt-switch-workaround
 endif
 
 
-DEB_DH_INSTALLINIT_ARGS := --noscripts
+DEB_DH_INSTALLINIT_ARGS := --noscripts --no-start
 
 binary-install/gdm::
 	mv debian/gdm/usr/sbin/gdm debian/gdm/usr/sbin/gdm
