@@ -22,6 +22,14 @@ if ! getent passwd gdm >/dev/null; then
         usermod -c "Gnome Display Manager" gdm
 fi
 
+# Creating nopasswdlogin group if he isn't already there.
+# That enables the password-less login feature in the users-admin
+# tool of the gnome-system-tools for users that belong to it,
+# and which is working thanks to GDM's PAM policy.
+if ! getent group nopasswdlogin >/dev/null; then
+        addgroup --system nopasswdlogin
+fi
+
 # debconf is not a registry, so we only fiddle with the default file if 
 # the configure script requested an update
 if [ -e $DEFAULT_DISPLAY_MANAGER_FILE.debconf-update ]; then
@@ -98,35 +106,15 @@ ucfr gdm /etc/gdm/greeter.dconf-defaults
 # debconf hangs if gdm gets started below without this
 db_stop || true
 
-chown -R gdm:gdm /var/lib/gdm
+if [ -d /var/lib/gdm ]; then
+  chown -R gdm:gdm /var/lib/gdm
+  chmod 0750 /var/lib/gdm
+fi
 
 if [ -L /etc/pam.d/gdm-welcome ]; then
     rm -f /etc/pam.d/gdm-welcome
 fi
 
 #DEBHELPER#
-
-if [ -f /var/run/gdm.pid ]; then
-  # We are probably upgrading from the old GDM version
-  old_pid=$(cat /var/run/gdm.pid)
-  if [ -L /proc/"$old_pid"/exe ] && [ $(readlink /proc/"$old_pid"/exe | awk '{print $1}') = /usr/sbin/gdm ]; then
-    # Paint me ugly: when you reload GDM 2.20, it will re-execute itself
-    # when possible. This means we need a temporary /usr/sbin/gdm that
-    # will delete itself (so that the old /etc/init.d/gdm becomes again
-    # a no-op).
-    cat > /usr/sbin/gdm << EOF
-#! /bin/sh
-rm -f /usr/sbin/gdm
-exec /usr/sbin/gdm "\$@"
-EOF
-    chmod 755 /usr/sbin/gdm
-    kill -s USR1 "$old_pid" || true
-  fi
-fi
-
-if [ -x /etc/init.d/gdm ]; then
-  update-rc.d gdm defaults $S $K >/dev/null 2>&1
-  invoke-rc.d gdm reload || true
-fi
 
 exit 0
