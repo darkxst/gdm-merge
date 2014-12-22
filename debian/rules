@@ -34,7 +34,7 @@ DEB_CONFIGURE_EXTRA_FLAGS += --enable-ipv6=yes \
 		--with-log-dir=/var/log/gdm \
 		--with-screenshot-dir=/var/run/gdm/greeter \
 		--with-defaults-conf=/usr/share/gdm/defaults.conf \
-		--with-user=Debian-gdm --with-group=Debian-gdm \
+		--with-user=gdm --with-group=gdm \
 		--with-lang-file=/etc/default/locale \
 		--disable-split-authentication \
 		--with-consolekit-directory=/usr/lib/ConsoleKit \
