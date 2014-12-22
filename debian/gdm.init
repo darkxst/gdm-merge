@@ -16,7 +16,7 @@ set -e
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/sbin/gdm
-PIDFILE=/var/run/gdm.pid
+PIDFILE=/var/run/gdm/gdm.pid
 
 test -x $DAEMON || exit 0
 
