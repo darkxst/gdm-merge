@@ -1,3 +1,4 @@
+01_language.patch
 08_frequent-users_greeter.patch
 09_default_session.patch
 16_xserver_path.patch
@@ -9,3 +10,9 @@
 92_systemd_unit.patch
 93_disable_gvfs.patch
 94_retain_xorg_log.patch
+ubuntu_run_xsession.d.patch
+ubuntu_upstart_event.patch
+ubuntu_xresources_is_a_dir.patch
+ubuntu_nvidia_prime.patch
+revert_override_LANG_with_accountservices.patch
+ubuntu_config_error_dialog.patch
