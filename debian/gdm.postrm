@@ -27,6 +27,9 @@ if [ "$1" = "purge" ] ; then
 	rm -rf /var/run/gdm
 	rm -rf /var/log/gdm
 	rm -rf /var/cache/gdm
+	rm -f /etc/pam.d/gdm-welcome  # old name
+	rm -f /etc/pam.d/gdm-password
+	rm -f /etc/pam.d/gdm-launch-environment
         if getent passwd gdm >/dev/null; then
                 if [ -x /usr/sbin/deluser ]; then
                         deluser --system gdm || echo "Could not remove gdm user."
