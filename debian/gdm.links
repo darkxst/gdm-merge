@@ -1,0 +1,2 @@
+etc/gdm/greeter.dconf-defaults usr/share/gdm/dconf/90-debian-settings
+lib/systemd/system/gdm.service lib/systemd/system/gdm.service

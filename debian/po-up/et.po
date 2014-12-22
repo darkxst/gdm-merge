@@ -1,13 +1,13 @@
-# gdm3 po-debconf eesti keele tõlge
-# Translation of gdm3 po-debconf to Estonian
+# gdm po-debconf eesti keele tõlge
+# Translation of gdm po-debconf to Estonian
 # Copyright (C) 2010 Debian GNU/Linux
-# This file is distributed under the same license as the gdm3 package.
+# This file is distributed under the same license as the gdm package.
 #
 # Mihkel <turakas gmail com>, 2010
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gdm3 po-debconf\n"
+"Project-Id-Version: gdm po-debconf\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-04-28 22:48+0200\n"
 "PO-Revision-Date: 2010-04-22 11:00+0300\n"

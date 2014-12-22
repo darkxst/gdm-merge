@@ -1,10 +1,10 @@
-# German translations for gdm3 package
-# Copyright (C) 2010 THE gdm3'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the gdm3 package.
+# German translations for gdm package
+# Copyright (C) 2010 THE gdm'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gdm package.
 # Gert Michael Kulyk <gkulyk@yahoo.de>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: gdm3 2.30.0\n"
+"Project-Id-Version: gdm 2.30.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-04-28 22:48+0200\n"
 "PO-Revision-Date: 2010-04-22 08:33+0200\n"

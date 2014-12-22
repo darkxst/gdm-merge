@@ -1,8 +1,8 @@
 debian/tmp/etc/*
 debian/tmp/lib
 debian/tmp/usr/bin/gdm-screenshot
-debian/tmp/usr/lib/gdm3/gdm-*
-# gets renamed to gdm3 in binary-install
+debian/tmp/usr/lib/gdm/gdm-*
+# gets renamed to gdm in binary-install
 debian/tmp/usr/sbin/gdm
 debian/tmp/usr/share/pixmaps/
 debian/tmp/usr/share/gnome-session/
@@ -17,7 +17,7 @@ debian/tmp/usr/share/glib-2.0/
 debian/tmp/usr/share/dconf/
 debian/tmp/var/*
 debian/dbus-1				usr/share/gdm/greeter
-debian/Xsession				etc/gdm3
+debian/Xsession				etc/gdm
 debian/greeter.dconf-defaults*		usr/share/gdm
 debian/default.desktop			usr/share/gdm/BuiltInSessions
 debian/generate-config			usr/share/gdm

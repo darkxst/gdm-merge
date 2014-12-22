@@ -1,11 +1,11 @@
-gdm3 (3.14.1-3) unstable; urgency=medium
+gdm (3.14.1-3) unstable; urgency=medium
 
   * 18_all_displays_transient.patch: fix autologin for the initial 
     display. Closes: #758183.
 
  -- Josselin Mouette <joss@debian.org>  Sun, 09 Nov 2014 18:16:02 +0100
 
-gdm3 (3.14.1-2) unstable; urgency=medium
+gdm (3.14.1-2) unstable; urgency=medium
 
   * Team upload.
   * Bring back Xorg.N.log at the X maintainers' request, so that their
@@ -13,7 +13,7 @@ gdm3 (3.14.1-2) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Sat, 08 Nov 2014 17:11:39 +0000
 
-gdm3 (3.14.1-1) unstable; urgency=medium
+gdm (3.14.1-1) unstable; urgency=medium
 
   * New upstream release.
   * debian/rules: Remove unneeded rules, the files are now removed from the
@@ -21,7 +21,7 @@ gdm3 (3.14.1-1) unstable; urgency=medium
 
  -- Laurent Bigonville <bigon@debian.org>  Sun, 19 Oct 2014 19:57:33 +0200
 
-gdm3 (3.14.0-1) unstable; urgency=medium
+gdm (3.14.0-1) unstable; urgency=medium
 
   [ Pedro Beja ]
   * New upstream release.
@@ -31,9 +31,9 @@ gdm3 (3.14.0-1) unstable; urgency=medium
 
  -- Laurent Bigonville <bigon@debian.org>  Wed, 08 Oct 2014 00:39:19 +0200
 
-gdm3 (3.13.92-1) unstable; urgency=medium
+gdm (3.13.92-1) unstable; urgency=medium
 
-  * debian/gdm3.config:
+  * debian/gdm.config:
     - make sure /etc/X11 directory exists. (Closes: #757081)
     Thanks to Daniel Baumann
   * New upstream release candidate.
@@ -41,7 +41,7 @@ gdm3 (3.13.92-1) unstable; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Fri, 19 Sep 2014 21:47:23 +0200
 
-gdm3 (3.13.91-1) experimental; urgency=medium
+gdm (3.13.91-1) experimental; urgency=medium
 
   * New upstream development release.
   * Drop patches backported from upstream now included in release:
@@ -53,7 +53,7 @@ gdm3 (3.13.91-1) experimental; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Sat, 06 Sep 2014 17:41:14 -0700
 
-gdm3 (3.12.2-4) unstable; urgency=medium
+gdm (3.12.2-4) unstable; urgency=medium
 
   * d/p/04_really_dont_block_SIGUSR1.patch: from upstream, Stop masking
     forcibly SIGUSR1, really. (Closes: #756068)
@@ -65,13 +65,13 @@ gdm3 (3.12.2-4) unstable; urgency=medium
 
  -- Laurent Bigonville <bigon@debian.org>  Sat, 06 Sep 2014 18:21:52 +0200
 
-gdm3 (3.12.2-3) experimental; urgency=medium
+gdm (3.12.2-3) experimental; urgency=medium
 
   * Enable wayland support on Linux.
 
  -- Andreas Henriksson <andreas@fatal.se>  Sat, 02 Aug 2014 16:24:28 +0200
 
-gdm3 (3.12.2-2.1) unstable; urgency=medium
+gdm (3.12.2-2.1) unstable; urgency=medium
 
   * Reinstate patches for better VT management.
     + 17_switch_on_finish.patch: introduce a setting for GdmDisplay that 
@@ -91,12 +91,12 @@ gdm3 (3.12.2-2.1) unstable; urgency=medium
 
  -- Josselin Mouette <joss@debian.org>  Thu, 14 Aug 2014 02:09:47 +0200
 
-gdm3 (3.12.2-2) unstable; urgency=medium
+gdm (3.12.2-2) unstable; urgency=medium
 
   [ Laurent Bigonville ]
   * debian/control.in: Remove build-dependency against libck-connector-dev for
     linux-any architectures.
-  * debian/gdm3.gdm-*.pam: Add call to pam_keyinit.so, the module can
+  * debian/gdm.gdm-*.pam: Add call to pam_keyinit.so, the module can
     unconditionally added now that the package is linux only (Closes: #734818)
 
   [ Andreas Henriksson ]
@@ -104,18 +104,18 @@ gdm3 (3.12.2-2) unstable; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Mon, 14 Jul 2014 23:44:36 +0200
 
-gdm3 (3.12.2-1) experimental; urgency=medium
+gdm (3.12.2-1) experimental; urgency=medium
 
   * New upstream release
   * Remove kfreebsd-any from Architecture. (Closes: #602724, #601106,
     #612157, #733546)
-  * debian/gdm3.init: Try to activate logind before starting gdm to avoid a
+  * debian/gdm.init: Try to activate logind before starting gdm to avoid a
     race condition when systemd is not used as PID1 (Closes: #747210)
   * debian/rules: Re-disable consolekit fallback support
 
  -- Laurent Bigonville <bigon@debian.org>  Tue, 20 May 2014 23:53:50 +0200
 
-gdm3 (3.12.1-1) experimental; urgency=medium
+gdm (3.12.1-1) experimental; urgency=medium
 
   [ Laurent Bigonville ]
   * debian/rules:
@@ -130,7 +130,7 @@ gdm3 (3.12.1-1) experimental; urgency=medium
     - Drop explicit dependency against systemd, libpam-systemd should pull the
       needed packages
     - Depends against consolekit on non-linux architectures
-  * debian/gdm3.pam, debian/gdm3-autologin.pam: Call pam_selinux open module
+  * debian/gdm.pam, debian/gdm-autologin.pam: Call pam_selinux open module
     higher in the session stack
 
   [ Josselin Mouette ]
@@ -145,7 +145,7 @@ gdm3 (3.12.1-1) experimental; urgency=medium
   * 92_gsettings_path.patch: removed. Dconf now supports database files 
     with hardcoded paths.
   * 91_dconf_database_path.patch: new patch. Point to a dconf path in 
-    /var/lib/gdm3 instead of the one in $DATADIR.
+    /var/lib/gdm instead of the one in $DATADIR.
   * Don’t install the pre-generated dconf database.
   * Install the source dconf databases to their former place in 
     /usr/share/gdm/dconf.
@@ -155,7 +155,7 @@ gdm3 (3.12.1-1) experimental; urgency=medium
     and use ucf to update the file.
   * Make a direct symlink to the new greeter.dconf-defaults file in the 
     dconf defaults directory.
-  * Simplify the dconf regeneration in gdm3.init thanks to that.
+  * Simplify the dconf regeneration in gdm.init thanks to that.
   * Move configuration generation to a separate script.
   * Use dh_systemd.
   * 92_systemd_unit.patch: port our init script specifics to the unit 
@@ -163,7 +163,7 @@ gdm3 (3.12.1-1) experimental; urgency=medium
   * Install the unit file.
   * Install a symlink to display-manager.service for the default display 
     manager, according to the value set in debconf.
-  * Add a symlink to gdm3.service since this is the name of the old init 
+  * Add a symlink to gdm.service since this is the name of the old init 
     script.
   * Fix the logic to update the default display manager after running 
     debconf.
@@ -175,18 +175,18 @@ gdm3 (3.12.1-1) experimental; urgency=medium
 
  -- Laurent Bigonville <bigon@debian.org>  Sat, 10 May 2014 22:52:23 +0200
 
-gdm3 (3.12.0-1) experimental; urgency=low
+gdm (3.12.0-1) experimental; urgency=low
 
   [ Laurent Bigonville ]
-  * debian/gdm-launch-environment.pam: Drop the symlink to gdm3-autologin and
-    install a real pam service. The differences with gdm3-autologin service
+  * debian/gdm-launch-environment.pam: Drop the symlink to gdm-autologin and
+    install a real pam service. The differences with gdm-autologin service
     are that gdm-launch-environment should not transition out of the xdm_t
     SELinux domain and not set a loginuid (as it's daemon's internal and not
     a real user)
-  * Drop debian/patches/10_gdm3_pam.patch and rename all the pam services back
+  * Drop debian/patches/10_gdm_pam.patch and rename all the pam services back
     to their upstream names. Also bump gnome-shell dependency as it uses gdm
     PAM services and the names must be synchronized.
-  * debian/gdm3.init: Fix inconsistency regarding the usage of PIDFILE
+  * debian/gdm.init: Fix inconsistency regarding the usage of PIDFILE
     variable, thanks to Leo Antunes <costela@debian.org> (Closes: #729489)
   * debian/control.in: Depend on libpam-systemd on linux architectures as we
     need XDG_RUNTIME_DIR set to work.
@@ -216,14 +216,14 @@ gdm3 (3.12.0-1) experimental; urgency=low
 
  -- Andreas Henriksson <andreas@fatal.se>  Fri, 04 Apr 2014 22:01:58 +0200
 
-gdm3 (3.10.0.1-2) experimental; urgency=low
+gdm (3.10.0.1-2) experimental; urgency=low
 
   * Update dependency on gnome-shell and gnome-session to >= 3.10. Otherwise
     the greeter apparently won't function.
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sat, 02 Nov 2013 11:47:36 +0100
 
-gdm3 (3.10.0.1-1) experimental; urgency=low
+gdm (3.10.0.1-1) experimental; urgency=low
 
   [ Michael Biebl ]
   * Drop Depends on policykit-1-gnome, with the gdm-fallback session gone,
@@ -251,7 +251,7 @@ gdm3 (3.10.0.1-1) experimental; urgency=low
 
  -- Sjoerd Simons <sjoerd@debian.org>  Fri, 01 Nov 2013 22:34:17 +0100
 
-gdm3 (3.8.4-2) unstable; urgency=low
+gdm (3.8.4-2) unstable; urgency=low
 
   [ Emilio Pozuelo Monfort ]
   * debian/patches/20_credentials.patch:
@@ -262,7 +262,7 @@ gdm3 (3.8.4-2) unstable; urgency=low
 
   [ Simon McVittie ]
   * Apply patch from Paul Wise to avoid userdel error messages
-    from being used as input for debconf if gdm3 is purged while
+    from being used as input for debconf if gdm is purged while
     processes are still running as Debian-gdm (Closes: #657751)
 
   [ Emilio Pozuelo Monfort ]
@@ -270,7 +270,7 @@ gdm3 (3.8.4-2) unstable; urgency=low
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 13 Oct 2013 17:29:04 +0200
 
-gdm3 (3.8.4-1) experimental; urgency=low
+gdm (3.8.4-1) experimental; urgency=low
 
   [ Laurent Bigonville ]
   * New upstream release
@@ -281,23 +281,23 @@ gdm3 (3.8.4-1) experimental; urgency=low
     - Bump Standards-Version to 3.9.4 (no further changes)
     - Use canonical URLs for VCS fields
     - Fix duplicate short description of libgdm package
-  * debian/gdm3.lintian-overrides, debian/source.lintian-overrides:
-    - Add an override for 'gdm3: unused-debconf-template gdm3/daemon_name'
+  * debian/gdm.lintian-overrides, debian/source.lintian-overrides:
+    - Add an override for 'gdm: unused-debconf-template gdm/daemon_name'
     - Drop unused overrides to please lintian
-  * debian/gdm3.dirs: Drop usr/share/gdm/greeter-settings/, not needed anymore
+  * debian/gdm.dirs: Drop usr/share/gdm/greeter-settings/, not needed anymore
     since 3.4.1-1
   * debian/gdmflexiserver.1.pod: Fix grammar, thanks to lintian
-  * debian/gdm3.manpages, debian/libgdm.manpages: Move gdmflexiserver manpage
+  * debian/gdm.manpages, debian/libgdm.manpages: Move gdmflexiserver manpage
     to libgdm package so it follows the executable
   * debian/rules: List non-installed files
-  * debian/gdm-screenshot.1.pod, debian/gdm3.manpages: Add manpage for
+  * debian/gdm-screenshot.1.pod, debian/gdm.manpages: Add manpage for
     gdm-screenshot executable, thanks to Nathan Handler (Closes: #691295)
 
   [ Jeremy Bicha ]
   * debian/control.in:
     - Since the fallback greeter isn't provided anymore, depend on gnome-shell
-      instead of metacity as gnome-shell is the only available gdm3 greeter
-    - Breaks/Replaces gdm3 instead of gdm
+      instead of metacity as gnome-shell is the only available gdm greeter
+    - Breaks/Replaces gdm instead of gdm
 
   [ Javier Martinez ]
   * debian/patches:
@@ -306,10 +306,10 @@ gdm3 (3.8.4-1) experimental; urgency=low
    * debian/control.in:
      + Split libgdm adding a libgdm-dev package
      + Rename libgdm to libgdm1 and update the package description
-     + Add a gir1.2-gdm3 package for GObject introspection data
-   * debian/gdm3.lintian-overrides:
-     + Drop gdm3: binary-or-shlib-defines-rpath
-       usr/lib/gdm3/gdm-simple-chooser /usr/lib/gdm since the gdm libraries
+     + Add a gir1.2-gdm package for GObject introspection data
+   * debian/gdm.lintian-overrides:
+     + Drop gdm: binary-or-shlib-defines-rpath
+       usr/lib/gdm/gdm-simple-chooser /usr/lib/gdm since the gdm libraries
        are not private anymore.
      + Make build depend on debhelper (>= 8.1.3) and cdbs (>= 0.4.93~) and
        add Pre-Depends: ${misc:Pre-Depends} to shared libs packages to
@@ -321,22 +321,22 @@ gdm3 (3.8.4-1) experimental; urgency=low
 
  -- Laurent Bigonville <bigon@debian.org>  Mon, 09 Sep 2013 00:40:53 +0200
 
-gdm3 (3.8.3-2) experimental; urgency=low
+gdm (3.8.3-2) experimental; urgency=low
 
-  * debian/patches/10_gdm3_pam.patch:
+  * debian/patches/10_gdm_pam.patch:
     + Updated. Update some more hardcoded gdm-autologin  entries
-  * debian/gdm3.install: Install the files debian overrides as the last ones
+  * debian/gdm.install: Install the files debian overrides as the last ones
     so we don't accidentally include upstream versions. Specifically in the
     case of the Xsession which needs to be debian specific
 
  -- Sjoerd Simons <sjoerd@debian.org>  Thu, 27 Jun 2013 08:56:50 +0200
 
-gdm3 (3.8.3-1) experimental; urgency=low
+gdm (3.8.3-1) experimental; urgency=low
 
   [ Simon McVittie ]
   * Don't suggest gok, which has been deprecated in favour of caribou
     and is not in GNOME 3 or Debian wheezy (Closes: #692781)
-  * Fix a typo in a comment in gdm3-autologin.pam (Closes: #689927)
+  * Fix a typo in a comment in gdm-autologin.pam (Closes: #689927)
 
   [ Laurent Bigonville ]
   * New upstream release (Closes: #701035)
@@ -355,8 +355,8 @@ gdm3 (3.8.3-1) experimental; urgency=low
   [ Simon McVittie ]
   * Mark all packages as Architecture: linux-any kfreebsd-any, because
     gdm requires credentials-passing (unimplemented on Hurd)
-  * Fix gdm3.install for package split
-    - gdm-simple-chooser etc. are in /usr/lib/gdm3, not /usr/lib/gdm
+  * Fix gdm.install for package split
+    - gdm-simple-chooser etc. are in /usr/lib/gdm, not /usr/lib/gdm
     - /usr/sbin/gdm-binary is the real daemon, and debian/rules expects it
       under that name
   * Tell dh_shlibdeps to look in libgdm to satisfy the shared library
@@ -377,14 +377,14 @@ gdm3 (3.8.3-1) experimental; urgency=low
     + Use gdm-shell greeter, fallback has been removed upstream
     + Stop disabling the power icon, it now longer allows configuring power
       settings
-  * debian/gdm3.lintian-overrides
-    + Override gdm3: binary-or-shlib-defines-rpath
-        usr/lib/gdm3/gdm-simple-chooser /usr/lib/gdm as it's expected for gdm3
+  * debian/gdm.lintian-overrides
+    + Override gdm: binary-or-shlib-defines-rpath
+        usr/lib/gdm/gdm-simple-chooser /usr/lib/gdm as it's expected for gdm
         to use the private gdm libraries
 
  -- Sjoerd Simons <sjoerd@debian.org>  Thu, 06 Jun 2013 13:39:28 +0200
 
-gdm3 (3.6.1-2) experimental; urgency=low
+gdm (3.6.1-2) experimental; urgency=low
 
   * Team upload
 
@@ -394,7 +394,7 @@ gdm3 (3.6.1-2) experimental; urgency=low
 
  -- Simon McVittie <smcv@debian.org>  Wed, 07 Nov 2012 14:35:38 +0000
 
-gdm3 (3.6.1-1) experimental; urgency=low
+gdm (3.6.1-1) experimental; urgency=low
 
   * New upstream release
   * debian/patches/94_schemas_location_on_hup.patch
@@ -402,7 +402,7 @@ gdm3 (3.6.1-1) experimental; urgency=low
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sat, 20 Oct 2012 17:50:59 +0200
 
-gdm3 (3.6.0-1) experimental; urgency=low
+gdm (3.6.0-1) experimental; urgency=low
 
   * New upstream release
   * debian/patches/04_reload_config.patch
@@ -417,7 +417,7 @@ gdm3 (3.6.0-1) experimental; urgency=low
     + Dropped, merged upstream
   * debian/patches/94_schemas_location_on_hup.patch:
      + Added, look in the right schema location on the HUP signal
-  * gdm3.{postinst,postrm}: PAM config file changed from gdm-welcome to
+  * gdm.{postinst,postrm}: PAM config file changed from gdm-welcome to
     gdm-launch-environment. Adapt postinst/postrm for the new name and remove
     the old
   * debian/rules: Set --with-consolekit-directory
@@ -433,7 +433,7 @@ gdm3 (3.6.0-1) experimental; urgency=low
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sun, 14 Oct 2012 22:02:30 +0200
 
-gdm3 (3.4.1-3) unstable; urgency=low
+gdm (3.4.1-3) unstable; urgency=low
 
   * Drop suggests on gnome-mag.
   * Recommends: at-spi → at-spi2-core. Closes: #680947.
@@ -450,7 +450,7 @@ gdm3 (3.4.1-3) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Sat, 22 Sep 2012 14:01:46 +0200
 
-gdm3 (3.4.1-2) unstable; urgency=low
+gdm (3.4.1-2) unstable; urgency=low
 
   * Fix typo in dconf-tools dependency version. Closes: #678961.
   * Use --no-create-home and --quiet for addgroup/adduser calls.
@@ -463,17 +463,17 @@ gdm3 (3.4.1-2) unstable; urgency=low
   * 02_xnest_wrapper.patch: disabled.
   * 04_reload_config.patch: patch from upstream git. Get SIGHUP to 
     actually reload the configuration.
-  * gdm3.init: send SIGHUP to get reload to work.
+  * gdm.init: send SIGHUP to get reload to work.
 
  -- Josselin Mouette <joss@debian.org>  Mon, 25 Jun 2012 20:18:38 +0200
 
-gdm3 (3.4.1-1) unstable; urgency=low
+gdm (3.4.1-1) unstable; urgency=low
 
   [ Jordi Mallach ]
   * Update po-up/ca.po.
 
   [ Josselin Mouette ]
-  * gdm3.init: remove .ICEauthority before starting. Closes: #648666.
+  * gdm.init: remove .ICEauthority before starting. Closes: #648666.
   * x11-common will now include xhost code to give access to the 
     local user if xhost is installed (see #586685).
     + Depend on the appropriate x11-common version.
@@ -485,7 +485,7 @@ gdm3 (3.4.1-1) unstable; urgency=low
   * 07_libexec-paths.patch: removed unused variables/files.
   * 08_frequent-users_greeter.patch: reworked according to upstream 
     changes.
-  * 10_gdm3_pam.patch: updated for the new version. Do not prefix the 
+  * 10_gdm_pam.patch: updated for the new version. Do not prefix the 
     PAM files for multistack, they have new names anyway.
   * 14_pam_dialog.patch: dropped, upstream merged an improved version.
   * 18_parametrize_create_display.patch: updated for the new version.
@@ -515,17 +515,17 @@ gdm3 (3.4.1-1) unstable; urgency=low
     + Remove the associated PAM files.
     + Disable dh_makeshlibs.
     + Install the dconf stuff in /usr/share/gdm.
-  * gdm3.postinst:
+  * gdm.postinst:
     + Remove the old gsettings file upon upgrade.
-  * gdm3.links:
+  * gdm.links:
     + Remove the old gsettings link.
-  * gdm3.init:
+  * gdm.init:
     + Replace the gsettings generation by a dconf-based one.
     + Do a conversion for the configuration file so that it remains 
       compatible.
   * 92_gsettings_path.patch: updated to force the dconf directory to be 
     in the GDM runtime directory.
-  * gdm3.install:
+  * gdm.install:
     + Stop installing MIME files by hand.
   * 93_private_lib.patch: new patch. Install the shared library in a 
     private directory.
@@ -537,9 +537,9 @@ gdm3 (3.4.1-1) unstable; urgency=low
     defaults in order.
 
   [ Laurent Bigonville ]
-  * debian/gdm3.pam, debian/gdm3-autologin.pam: Call pam_selinux pam module
+  * debian/gdm.pam, debian/gdm-autologin.pam: Call pam_selinux pam module
     (Closes: #661289)
-  * debian/gdm3.pam, debian/gdm3-autologin.pam: Call pam_loginuid pam module
+  * debian/gdm.pam, debian/gdm-autologin.pam: Call pam_loginuid pam module
     (Closes: #661745)
 
   [ Josselin Mouette ]
@@ -558,21 +558,21 @@ gdm3 (3.4.1-1) unstable; urgency=low
   * 07_libexec-paths.patch:
     + Use the binary path as provided by g-s-d.pc.
     + Add a check for gnome-session, which is also used.
-  * 10_gdm3_pam.patch: handle the bucket of FAIL that is hardcoding the 
+  * 10_gdm_pam.patch: handle the bucket of FAIL that is hardcoding the 
     service name in various places since split authentication was 
     introduced.
   * 18_parametrize_create_display.patch, 
     19_static_transient_display.patch, 20_switch_kill_greeter.patch,
     21_static_display_purge.patch: adapt to systemd/multiseat changes.
   * Require dconf 0.12.1-2.
-  * gdm3.post{inst,rm}: add a gdm-welcome PAM service, which is now 
+  * gdm.post{inst,rm}: add a gdm-welcome PAM service, which is now 
     needed for the login session. It's just a symlink.
   * 91_shell_version_control.patch: new patch, Debian-specific. Add 
     strict version checking for gnome-shell in order to go to the fall 
     back session in case of potential incompatibility.
   * 93_private_lib.patch: also install the typelib file in the private 
     directory, and drop the gir file.
-  * gdm3.dirs: /usr/lib/gnome-shell
+  * gdm.dirs: /usr/lib/gnome-shell
   * rules:
     + Remove pre-built gdm.schemas which includes incorrect settings.
     + Enable introspection.
@@ -587,7 +587,7 @@ gdm3 (3.4.1-1) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Thu, 21 Jun 2012 00:18:36 +0200
 
-gdm3 (3.0.4-4) unstable; urgency=low
+gdm (3.0.4-4) unstable; urgency=low
 
   [ Michael Biebl ]
   * debian/watch:
@@ -603,7 +603,7 @@ gdm3 (3.0.4-4) unstable; urgency=low
 
  -- Michael Biebl <biebl@debian.org>  Thu, 20 Oct 2011 16:22:33 +0200
 
-gdm3 (3.0.4-3) unstable; urgency=low
+gdm (3.0.4-3) unstable; urgency=low
 
   * Upload to unstable.
   * Drop Build-Depends on libpolkit-gobject-1-dev and libpolkit-gtk-1-dev.
@@ -616,7 +616,7 @@ gdm3 (3.0.4-3) unstable; urgency=low
 
  -- Michael Biebl <biebl@debian.org>  Fri, 14 Oct 2011 14:45:46 +0200
 
-gdm3 (3.0.4-2) experimental; urgency=low
+gdm (3.0.4-2) experimental; urgency=low
 
   * Document how to change the GSettings settings in README.Debian.
   * greeter.gsettings: add an example of how to disable the sound.
@@ -641,7 +641,7 @@ gdm3 (3.0.4-2) experimental; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Wed, 15 Jun 2011 20:14:19 +0200
 
-gdm3 (3.0.4-1) experimental; urgency=low
+gdm (3.0.4-1) experimental; urgency=low
 
   * New upstream bugfix & security release.
   * Require accountsservice 0.6.12.
@@ -649,13 +649,13 @@ gdm3 (3.0.4-1) experimental; urgency=low
     version.
   * 93_xdg_data_dirs.patch: new patch. Add /usr/share/gdm to 
     XDG_DATA_DIRS.
-  * debian/gdm3.install: install the dummy desktop handler and the 
+  * debian/gdm.install: install the dummy desktop handler and the 
     mimeapps.list to /usr/share/gdm/applications.
   * rules: clean them from /var.
 
  -- Josselin Mouette <joss@debian.org>  Wed, 01 Jun 2011 00:40:08 +0200
 
-gdm3 (3.0.0-2) experimental; urgency=low
+gdm (3.0.0-2) experimental; urgency=low
 
   * 18_switch_kill_greeter.patch: remove the 2 second timeout, it is 
     useless now.
@@ -679,19 +679,19 @@ gdm3 (3.0.0-2) experimental; urgency=low
     + Require gsettings-desktop-schemas and libglib2.0-bin in the binary 
       package.
     + greeter.gsettings: new file. Set the Debian GSettings defaults.
-    + Install it in /etc/gdm3 and link it in 
+    + Install it in /etc/gdm and link it in 
       /usr/share/gdm/greeter-settings.
-    + gdm3.init: regenerate the schemas if needed in /var/lib/gdm3.
+    + gdm.init: regenerate the schemas if needed in /var/lib/gdm.
   * greeter.gconf-defaults: remove settings that are necessarily in 
     GSettings now.
 
  -- Josselin Mouette <joss@debian.org>  Thu, 12 May 2011 00:09:50 +0200
 
-gdm3 (3.0.0-1) experimental; urgency=low
+gdm (3.0.0-1) experimental; urgency=low
 
   * DISCLAIMER: this one is labeled “experimental” for a reason.
   * README.Debian: remove reference to GDM 2.26. Closes: #616603.
-  * gdm3.8.pod: patch from Vincent Lefevre to document XAUTHORITY. 
+  * gdm.8.pod: patch from Vincent Lefevre to document XAUTHORITY. 
     Closes: #616612.
   * New upstream release.
   * 01_minimal_uid.patch: dropped, fixed upstream using accountsservice.
@@ -736,7 +736,7 @@ gdm3 (3.0.0-1) experimental; urgency=low
   * Drop gdmXnestwrapper, anyway we can force Xephyr now.
   * Drop gnome-session-check-accelerated.desktop, it’s useless at login 
     time.
-  * gdm3.preinst: dropped, the change is in stable.
+  * gdm.preinst: dropped, the change is in stable.
   * Require gnome-session 3.0.
   * Stop adding /usr/share/gdm to XDG_DATA_DIRS
   * Break gnome-control-center < 3 since it is required for account 
@@ -747,7 +747,7 @@ gdm3 (3.0.0-1) experimental; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Mon, 28 Mar 2011 11:31:13 +0530
 
-gdm3 (2.30.5-11) unstable; urgency=low
+gdm (2.30.5-11) unstable; urgency=low
 
   * 35_double_free.patch: stolen from 2.30.7. Fix a double free issue in 
     the chooser code.
@@ -760,7 +760,7 @@ gdm3 (2.30.5-11) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Thu, 18 Aug 2011 18:21:15 +0200
 
-gdm3 (2.30.5-10) unstable; urgency=low
+gdm (2.30.5-10) unstable; urgency=low
 
   * 33_reset_signal_handler.patch: stolen upstream. Reset SIGPIPE 
     handler before starting the session.
@@ -769,17 +769,17 @@ gdm3 (2.30.5-10) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Wed, 20 Apr 2011 19:57:09 +0200
 
-gdm3 (2.30.5-9) unstable; urgency=high
+gdm (2.30.5-9) unstable; urgency=high
 
   * README.Debian: remove reference to GDM 2.26. Closes: #616603.
-  * gdm3.8.pod: patch from Vincent Lefevre to document XAUTHORITY. 
+  * gdm.8.pod: patch from Vincent Lefevre to document XAUTHORITY. 
     Closes: #616612.
   * 32_CVE-2011-0727.patch: patch from Ray Strode to fix local root 
     privilege escalation. Closes: #620184, CVE-2011-0727.
 
  -- Josselin Mouette <joss@debian.org>  Sat, 09 Apr 2011 12:09:35 +0200
 
-gdm3 (2.30.5-8) unstable; urgency=low
+gdm (2.30.5-8) unstable; urgency=low
 
   * README.Debian: document the xauth stuff. Closes: #614972.
   * 31_xkb_options.patch: patch from Julien Pinon to always pass XKB 
@@ -790,12 +790,12 @@ gdm3 (2.30.5-8) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Thu, 03 Mar 2011 22:10:30 +0100
 
-gdm3 (2.30.5-7) unstable; urgency=low
+gdm (2.30.5-7) unstable; urgency=low
 
   [ Josselin Mouette ]
-  * gdm3.init: chown the configuration to Debian-gdm, to avoid umask 
+  * gdm.init: chown the configuration to Debian-gdm, to avoid umask 
     issues. Closes: #603510.
-  * gdm3.postrm: handle deluser/delgroup failures gracefully.
+  * gdm.postrm: handle deluser/delgroup failures gracefully.
     Closes: #603753.
   * 29_grep_path.patch: new patch. Don’t hardcode grep to a wrong 
     location. Closes: #607664.
@@ -803,12 +803,12 @@ gdm3 (2.30.5-7) unstable; urgency=low
     locale.utf8. Closes: #607753.
 
   [ Emilio Pozuelo Monfort ]
-  * debian/gdm3.8.pod:
+  * debian/gdm.8.pod:
     + Fix typo, thanks Yury V. Zaytsev. Closes: #610723.
 
  -- Josselin Mouette <joss@debian.org>  Mon, 24 Jan 2011 22:56:35 +0100
 
-gdm3 (2.30.5-6) unstable; urgency=low
+gdm (2.30.5-6) unstable; urgency=low
 
   * 11_xephyr_nested.patch: don’t switch VTs from nested displays. It’s 
     confusing and prevents using them to start sessions for existing 
@@ -820,7 +820,7 @@ gdm3 (2.30.5-6) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Mon, 15 Nov 2010 20:52:24 +0100
 
-gdm3 (2.30.5-5) unstable; urgency=low
+gdm (2.30.5-5) unstable; urgency=low
 
   * 27_orca_braille.patch: patch from Samuel Thibault to enable braille 
     support in orca. Closes: #600472.
@@ -845,11 +845,11 @@ gdm3 (2.30.5-5) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Sun, 07 Nov 2010 00:32:11 +0100
 
-gdm3 (2.30.5-4) unstable; urgency=low
+gdm (2.30.5-4) unstable; urgency=low
 
   * 21_schemas_usr.patch: add some comments in the daemon.conf file to 
     explain the available options. Thanks Joey Hess. Closes: #598666.
-  * gdm3.init: drop hal and acpid. Closes: #599015.
+  * gdm.init: drop hal and acpid. Closes: #599015.
   * Pass --enable-debug with DEB_BUILD_OPTIONS=debug.
   * 20_endsession_respawn.patch: fix typo introduced in 2.30.5-2 that 
     turns the feature completely off.
@@ -863,7 +863,7 @@ gdm3 (2.30.5-4) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Wed, 06 Oct 2010 00:10:48 +0200
 
-gdm3 (2.30.5-3) unstable; urgency=low
+gdm (2.30.5-3) unstable; urgency=low
 
   [ Josselin Mouette ]
   * pt_BR.po: new Brazilian Portuguese translation by Sérgio Cipolla.
@@ -877,7 +877,7 @@ gdm3 (2.30.5-3) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Sat, 02 Oct 2010 18:41:24 +0200
 
-gdm3 (2.30.5-2) unstable; urgency=low
+gdm (2.30.5-2) unstable; urgency=low
 
   * 03_ipv6.patch: new patch from Julien Cristau, thanks a lot for 
     investigating! Fix an allocation error that leads to passing garbage 
@@ -925,7 +925,7 @@ gdm3 (2.30.5-2) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Fri, 17 Sep 2010 21:37:13 +0200
 
-gdm3 (2.30.5-1) unstable; urgency=low
+gdm (2.30.5-1) unstable; urgency=low
 
   * greeter.gconf-defaults: disable the power management icon, it allows 
     to change the power management settings. Closes: #580629.
@@ -952,7 +952,7 @@ gdm3 (2.30.5-1) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Sun, 05 Sep 2010 21:49:10 +0200
 
-gdm3 (2.30.2-4) unstable; urgency=low
+gdm (2.30.2-4) unstable; urgency=low
 
   [ Josselin Mouette ]
   * Ship a file in insserv.conf.d. Closes: #583694.
@@ -967,14 +967,14 @@ gdm3 (2.30.2-4) unstable; urgency=low
   * 24_show_user_other.patch: new patch. Always show the “Other…” user, 
     even when there are no users in the list. Otherwise this breaks 
     setups with no local user.
-  * gdm3.init: drop bootlogs from the requirements. Closes: #585512.
+  * gdm.init: drop bootlogs from the requirements. Closes: #585512.
   * rules: set default language file to /etc/default/locale.
   * debian/Xsession: set LANG from GDM_LANG, which is the one set from 
     GDM. Closes: #584231.
 
  -- Josselin Mouette <joss@debian.org>  Sat, 12 Jun 2010 11:16:04 +0200
 
-gdm3 (2.30.2-3) unstable; urgency=low
+gdm (2.30.2-3) unstable; urgency=low
 
   * Pass -novtswitch to the X server options, so that it doesn’t switch 
     back to the original tty when being killed. This fixes a corner case 
@@ -999,11 +999,11 @@ gdm3 (2.30.2-3) unstable; urgency=low
     as a standalone XDMCP server.
   * 23_autologin_once.patch: patch from Vincent Untz. Do not autologin 
     again after the session has been closed. Closes: #578736.
-  * gdm3.preinst: remove the old gdm.schemas upon upgrade.
+  * gdm.preinst: remove the old gdm.schemas upon upgrade.
 
  -- Josselin Mouette <joss@debian.org>  Sat, 08 May 2010 14:59:06 +0200
 
-gdm3 (2.30.2-2) unstable; urgency=low
+gdm (2.30.2-2) unstable; urgency=low
 
   * Pass X_PATH et al. through DEB_CONFIGURE_SCRIPT_ENV.
   * 16_xserver_path.patch: use the environment variables when they 
@@ -1018,14 +1018,14 @@ gdm3 (2.30.2-2) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Fri, 07 May 2010 21:42:02 +0200
 
-gdm3 (2.30.2-1) unstable; urgency=low
+gdm (2.30.2-1) unstable; urgency=low
 
   * Break orca < 2.30.0-2 just to be sure.
   * New Czech translation by Michal Šimůnek.
   * New Vietnamese translation by Clytie Siddall. Closes: #579228.
   * 14_bindv6only.patch: patch from Julien Cristau to fix XDMCP and 
     chooser behavior with bindv6only=1. Closes: #579033.
-  * 15_kfreebsd.patch: first attempt at making gdm3 build on kfreebsd.
+  * 15_kfreebsd.patch: first attempt at making gdm build on kfreebsd.
     This fixes the current build issue and will probably not be enough.
     Closes: #579288.
   * Add Vcs-* fields.
@@ -1036,7 +1036,7 @@ gdm3 (2.30.2-1) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Tue, 27 Apr 2010 18:50:56 +0200
 
-gdm3 (2.30.0-3) unstable; urgency=low
+gdm (2.30.0-3) unstable; urgency=low
 
   * New Spanish translations by Francisco Javier Cuadrado.
   * New Telugu translations by Veeven. Closes: #578713.
@@ -1057,12 +1057,12 @@ gdm3 (2.30.0-3) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Fri, 23 Apr 2010 19:33:33 +0200
 
-gdm3 (2.30.0-2) unstable; urgency=low
+gdm (2.30.0-2) unstable; urgency=low
 
   * 11_xephyr_nested.patch: don’t lock the screen when you use Xnest. 
     Also handle correctly the -l option.
   * greeter.gconf-defaults: remove trailing whitespace.
-  * debian/gdm3.postinst: create a /var/lib/gdm3/.gconf.path that 
+  * debian/gdm.postinst: create a /var/lib/gdm/.gconf.path that 
     mentions the .gconf.mandatory where the settings live. This fixes 
     all issues with g-s-d, which didn’t obtain the correct settings. 
     Yay!
@@ -1078,7 +1078,7 @@ gdm3 (2.30.0-2) unstable; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Wed, 21 Apr 2010 22:15:17 +0200
 
-gdm3 (2.30.0-1) experimental; urgency=low
+gdm (2.30.0-1) experimental; urgency=low
 
   [ Luca Bruno ]
   * New upstream release.
@@ -1118,7 +1118,7 @@ gdm3 (2.30.0-1) experimental; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Wed, 14 Apr 2010 00:57:23 +0200
 
-gdm3 (2.29.92-1) experimental; urgency=low
+gdm (2.29.92-1) experimental; urgency=low
 
   [ Luca Bruno ]
   * New upstream release.
@@ -1142,13 +1142,13 @@ gdm3 (2.29.92-1) experimental; urgency=low
 
   [ Josselin Mouette ]
   * Pass --with-screenshot-dir, newly introduced.
-  * Name the user Debian-gdm instead of gdm3, it’s better for the long 
+  * Name the user Debian-gdm instead of gdm, it’s better for the long 
     term.
   * Update list of copyright holders.
 
  -- Luca Bruno <lethalman88@gmail.com>  Thu, 01 Apr 2010 12:49:57 +0200
 
-gdm3 (2.28.1-1) UNRELEASED; urgency=low
+gdm (2.28.1-1) UNRELEASED; urgency=low
 
   [ Josselin Mouette ]
   * New upstream release.
@@ -1204,16 +1204,16 @@ gdm3 (2.28.1-1) UNRELEASED; urgency=low
     - gdmflexiserver is ignoring many options, including xnest.
 
   [ Josselin Mouette ]
-  * Rename the package to gdm3. Conflict with gdm.
+  * Rename the package to gdm. Conflict with gdm.
   * Rework package description a bit.
   * Translate default.desktop.
   * Remove useless extract-locales.
   * Rename all configuration files and main binaries so that it does not 
     cause upgrade trouble with good old gdm.
   * Require upower instead of dk-power.
-  * 10_gdm3_pam.patch: new patch. Allow to look for PAM files named 
+  * 10_gdm_pam.patch: new patch. Allow to look for PAM files named 
     differently from the default.
-  * gdm3.postinst: add some code to handle the need to reload the old 
+  * gdm.postinst: add some code to handle the need to reload the old 
     version of gdm if it is still running.
 
  -- Josselin Mouette <joss@debian.org>  Mon, 15 Mar 2010 21:27:29 +0100

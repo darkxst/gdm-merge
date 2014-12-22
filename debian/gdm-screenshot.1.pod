@@ -47,7 +47,7 @@ X display to use
 
 =head1 SEE ALSO
 
-gdm3(8).
+gdm(8).
 
 =head1 AUTHORS
 

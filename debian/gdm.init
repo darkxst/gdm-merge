@@ -1,6 +1,6 @@
 #! /bin/sh
 ### BEGIN INIT INFO
-# Provides:          gdm3
+# Provides:          gdm
 # Should-Start:      console-screen dbus network-manager
 # Required-Start:    $local_fs $remote_fs
 # Required-Stop:     $local_fs $remote_fs
@@ -15,8 +15,8 @@
 set -e
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/sbin/gdm3
-PIDFILE=/var/run/gdm3.pid
+DAEMON=/usr/sbin/gdm
+PIDFILE=/var/run/gdm.pid
 
 test -x $DAEMON || exit 0
 
@@ -49,10 +49,10 @@ case "$1" in
             log_warning_msg "Not starting GNOME Display Manager; found 'text' in kernel commandline."
         elif [ -e "$DEFAULT_DISPLAY_MANAGER_FILE" ] && \
            [ "$HEED_DEFAULT_DISPLAY_MANAGER" = "true" ] && \
-           [ "$CONFIGURED_DAEMON" != gdm3 ] ; then
+           [ "$CONFIGURED_DAEMON" != gdm ] ; then
                 log_action_msg "Not starting GNOME Display Manager; it is not the default display manager"
         else
-                log_daemon_msg "Starting GNOME Display Manager" "gdm3"
+                log_daemon_msg "Starting GNOME Display Manager" "gdm"
                 activate_logind || log_end_msg 1
                 /usr/share/gdm/generate-config
                 start-stop-daemon --start --quiet --pidfile $PIDFILE \
@@ -61,31 +61,31 @@ case "$1" in
         fi
   ;;
   stop)
-        log_daemon_msg "Stopping GNOME Display Manager" "gdm3"
+        log_daemon_msg "Stopping GNOME Display Manager" "gdm"
         set +e
         start-stop-daemon --stop --quiet --pidfile $PIDFILE \
-                --name gdm3 --retry 5
+                --name gdm --retry 5
         set -e
         log_end_msg $?
   ;;
   reload)
-        log_daemon_msg "Scheduling reload of GNOME Display Manager configuration" "gdm3"
+        log_daemon_msg "Scheduling reload of GNOME Display Manager configuration" "gdm"
         /usr/share/gdm/generate-config
         set +e
         start-stop-daemon --stop --signal HUP --quiet --pidfile $PIDFILE \
-                --name gdm3
+                --name gdm
         set -e
         log_end_msg $?
   ;;
   status)
-        status_of_proc -p "$PIDFILE" "$DAEMON" gdm3 && exit 0 || exit $?
+        status_of_proc -p "$PIDFILE" "$DAEMON" gdm && exit 0 || exit $?
   ;;
   restart|force-reload)
         $0 stop
         $0 start
   ;;
   *)
-        echo "Usage: /etc/init.d/gdm3 {start|stop|restart|reload|force-reload|status}"
+        echo "Usage: /etc/init.d/gdm {start|stop|restart|reload|force-reload|status}"
         exit 1
   ;;
 esac

@@ -9,23 +9,23 @@ if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
 fi
 
 if [ "$1" = "purge" ] ; then
-        update-rc.d gdm3 remove >/dev/null
-        if [ -d /etc/gdm3 ]; then
+        update-rc.d gdm remove >/dev/null
+        if [ -d /etc/gdm ]; then
 		for i in Init PreSession PostSession PostLogin; do
-			if [ -d /etc/gdm3/$i ]; then
-				rmdir --ignore-fail-on-non-empty /etc/gdm3/$i 2> /dev/null
+			if [ -d /etc/gdm/$i ]; then
+				rmdir --ignore-fail-on-non-empty /etc/gdm/$i 2> /dev/null
 			fi
 		done
-		rm -f /etc/gdm3/greeter.dconf-defaults
-		rmdir --ignore-fail-on-non-empty /etc/gdm3
+		rm -f /etc/gdm/greeter.dconf-defaults
+		rmdir --ignore-fail-on-non-empty /etc/gdm
         fi
         if which ucf >/dev/null; then
-        	ucf --purge /etc/gdm3/greeter.dconf-defaults
-        	ucfr --purge gdm3 /etc/gdm3/greeter.dconf-defaults
+        	ucf --purge /etc/gdm/greeter.dconf-defaults
+        	ucfr --purge gdm /etc/gdm/greeter.dconf-defaults
         fi
-	rm -rf /var/lib/gdm3
-	rm -rf /var/run/gdm3
-	rm -rf /var/log/gdm3
+	rm -rf /var/lib/gdm
+	rm -rf /var/run/gdm
+	rm -rf /var/log/gdm
 	rm -rf /var/cache/gdm
         if getent passwd Debian-gdm >/dev/null; then
                 if [ -x /usr/sbin/deluser ]; then

@@ -24,7 +24,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
-"Report-Msgid-Bugs-To: gdm3@packages.debian.org\n"
+"Report-Msgid-Bugs-To: gdm@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-11 23:23+0200\n"
 "PO-Revision-Date: 2005-12-19 18:40+0200\n"
 "Last-Translator: Konstantinos Margaritis <markos@debian.org>\n"
@@ -36,14 +36,14 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../gdm3.templates:2001
+#: ../gdm.templates:2001
 #, fuzzy
 msgid "Default display manager:"
 msgstr "Επιλέξτε τον επιθυμητό διαχειριστή οθόνης."
 
 #. Type: select
 #. Description
-#: ../gdm3.templates:2001
+#: ../gdm.templates:2001
 msgid ""
 "A display manager is a program that provides graphical login capabilities "
 "for the X Window System."
@@ -53,7 +53,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../gdm3.templates:2001
+#: ../gdm.templates:2001
 #, fuzzy
 msgid ""
 "Only one display manager can manage a given X server, but multiple display "
@@ -66,7 +66,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../gdm3.templates:2001
+#: ../gdm.templates:2001
 #, fuzzy
 msgid ""
 "Multiple display managers can run simultaneously if they are configured to "

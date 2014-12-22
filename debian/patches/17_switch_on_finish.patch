@@ -1,9 +1,9 @@
 daemon: add switch-on-finish property to display
 
-Index: gdm3-3.12.2/daemon/gdm-display.c
+Index: gdm-3.12.2/daemon/gdm-display.c
 ===================================================================
---- gdm3-3.12.2.orig/daemon/gdm-display.c	2014-08-14 01:09:48.102831204 +0200
-+++ gdm3-3.12.2/daemon/gdm-display.c	2014-08-14 01:10:35.310113921 +0200
+--- gdm-3.12.2.orig/daemon/gdm-display.c	2014-08-14 01:09:48.102831204 +0200
++++ gdm-3.12.2/daemon/gdm-display.c	2014-08-14 01:10:35.310113921 +0200
 @@ -65,6 +65,7 @@ struct GdmDisplayPrivate
          GdmDisplayAccessFile *access_file;
  
@@ -101,10 +101,10 @@ Index: gdm3-3.12.2/daemon/gdm-display.c
                                                                 G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
  
          g_object_class_install_property (object_class,
-Index: gdm3-3.12.2/daemon/gdm-display.h
+Index: gdm-3.12.2/daemon/gdm-display.h
 ===================================================================
---- gdm3-3.12.2.orig/daemon/gdm-display.h	2014-08-14 01:09:48.102831204 +0200
-+++ gdm3-3.12.2/daemon/gdm-display.h	2014-08-14 01:09:48.098831265 +0200
+--- gdm-3.12.2.orig/daemon/gdm-display.h	2014-08-14 01:09:48.102831204 +0200
++++ gdm-3.12.2/daemon/gdm-display.h	2014-08-14 01:09:48.098831265 +0200
 @@ -136,6 +136,9 @@ gboolean            gdm_display_get_time
  gboolean            gdm_display_is_initial                     (GdmDisplay  *display,
                                                                  gboolean    *initial,
@@ -115,10 +115,10 @@ Index: gdm3-3.12.2/daemon/gdm-display.h
  
  gboolean            gdm_display_get_x11_cookie                 (GdmDisplay  *display,
                                                                  const char **x11_cookie,
-Index: gdm3-3.12.2/daemon/gdm-transient-display.c
+Index: gdm-3.12.2/daemon/gdm-transient-display.c
 ===================================================================
---- gdm3-3.12.2.orig/daemon/gdm-transient-display.c	2014-08-14 01:09:48.102831204 +0200
-+++ gdm3-3.12.2/daemon/gdm-transient-display.c	2014-08-14 01:09:52.000000000 +0200
+--- gdm-3.12.2.orig/daemon/gdm-transient-display.c	2014-08-14 01:09:48.102831204 +0200
++++ gdm-3.12.2/daemon/gdm-transient-display.c	2014-08-14 01:09:52.000000000 +0200
 @@ -188,6 +188,7 @@ gdm_transient_display_new (int display_n
          object = g_object_new (GDM_TYPE_TRANSIENT_DISPLAY,
                                 "x11-display-number", display_number,

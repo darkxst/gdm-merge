@@ -1,7 +1,7 @@
-Index: gdm3-3.12.1/daemon/gdm-launch-environment.c
+Index: gdm-3.12.1/daemon/gdm-launch-environment.c
 ===================================================================
---- gdm3-3.12.1.orig/daemon/gdm-launch-environment.c	2014-04-10 18:58:02.000000000 +0200
-+++ gdm3-3.12.1/daemon/gdm-launch-environment.c	2014-05-06 14:41:41.240647859 +0200
+--- gdm-3.12.1.orig/daemon/gdm-launch-environment.c	2014-04-10 18:58:02.000000000 +0200
++++ gdm-3.12.1/daemon/gdm-launch-environment.c	2014-05-06 14:41:41.240647859 +0200
 @@ -288,6 +288,9 @@
          g_hash_table_insert (hash, g_strdup ("PATH"), g_strdup (g_getenv ("PATH")));
  

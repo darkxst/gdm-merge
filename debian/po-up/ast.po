@@ -1,11 +1,11 @@
-# gdm3 po-debconf translation to Spanish
+# gdm po-debconf translation to Spanish
 # Copyright (C) 2010 Software in the Public Interest
-# This file is distributed under the same license as the gdm3 package.
+# This file is distributed under the same license as the gdm package.
 #
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gdm3 patches\n"
+"Project-Id-Version: gdm patches\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-04-28 22:48+0200\n"
 "PO-Revision-Date: 2010-04-22 14:49+0100\n"

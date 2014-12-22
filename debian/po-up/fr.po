@@ -1,9 +1,9 @@
-# This file is distributed under the same license as the gdm3 package.
+# This file is distributed under the same license as the gdm package.
 # Josselin Mouette <joss@debian.org>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gdm3 2.30.0-1\n"
+"Project-Id-Version: gdm 2.30.0-1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-04-28 22:48+0200\n"
 "PO-Revision-Date: 2010-04-21 22:05+0200\n"

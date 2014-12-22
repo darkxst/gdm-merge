@@ -26,20 +26,20 @@ DEB_CONFIGURE_SCRIPT_ENV += X_PATH="/usr/bin" \
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-ipv6=yes \
 		--with-at-spi-registryd-directory=/usr/lib/at-spi \
 		--with-default-path=/usr/local/bin:/usr/bin:/bin:/usr/games \
-		--with-custom-conf=/etc/gdm3/daemon.conf \
-		--with-sysconfsubdir=gdm3 \
-		--with-working-directory=/var/lib/gdm3 \
-		--with-xauth-dir=/var/run/gdm3 \
-		--with-pid-file=/var/run/gdm3.pid \
-		--with-log-dir=/var/log/gdm3 \
-		--with-screenshot-dir=/var/run/gdm3/greeter \
+		--with-custom-conf=/etc/gdm/daemon.conf \
+		--with-sysconfsubdir=gdm \
+		--with-working-directory=/var/lib/gdm \
+		--with-xauth-dir=/var/run/gdm \
+		--with-pid-file=/var/run/gdm.pid \
+		--with-log-dir=/var/log/gdm \
+		--with-screenshot-dir=/var/run/gdm/greeter \
 		--with-defaults-conf=/usr/share/gdm/defaults.conf \
 		--with-user=Debian-gdm --with-group=Debian-gdm \
 		--with-lang-file=/etc/default/locale \
 		--disable-split-authentication \
 		--with-consolekit-directory=/usr/lib/ConsoleKit \
 		--with-check-accelerated-directory=/usr/lib/gnome-session/ \
-		--with-ran-once-marker-directory=/var/run/gdm3 \
+		--with-ran-once-marker-directory=/var/run/gdm \
 		--with-gnome-settings-daemon-directory="`pkg-config --variable=libexecdir gnome-settings-daemon`" \
 		--with-initial-vt=7
 
@@ -61,7 +61,7 @@ ifneq (,$(filter debug,$(DEB_BUILD_OPTIONS)))
 	DEB_CONFIGURE_EXTRA_FLAGS += --enable-debug
 endif
 
-DEB_MAKE_EXTRA_ARGS += authdir=/var/lib/gdm3
+DEB_MAKE_EXTRA_ARGS += authdir=/var/lib/gdm
 		
 ifeq (linux,$(DEB_HOST_ARCH_OS))
 	DEB_CONFIGURE_EXTRA_FLAGS += --with-plymouth
@@ -72,20 +72,20 @@ endif
 
 DEB_DH_INSTALLINIT_ARGS := --noscripts
 
-binary-install/gdm3::
-	mv debian/gdm3/usr/sbin/gdm debian/gdm3/usr/sbin/gdm3
-	chmod 755 debian/gdm3/etc/gdm3/Xsession
-	chmod 755 debian/gdm3/usr/share/gdm/generate-config
-	dh_installpam -pgdm3 --name=gdm-autologin
-	dh_installpam -pgdm3 --name=gdm-launch-environment
-	dh_installpam -pgdm3 --name=gdm-password
-	rm -rf debian/gdm3/var/lib/gdm3/.[cgl]*
-	rm -rf debian/gdm3/var/run
-	rm -rf debian/gdm3/usr/include
-	rm -rf debian/gdm3/usr/lib/pkgconfig
+binary-install/gdm::
+	mv debian/gdm/usr/sbin/gdm debian/gdm/usr/sbin/gdm
+	chmod 755 debian/gdm/etc/gdm/Xsession
+	chmod 755 debian/gdm/usr/share/gdm/generate-config
+	dh_installpam -pgdm --name=gdm-autologin
+	dh_installpam -pgdm --name=gdm-launch-environment
+	dh_installpam -pgdm --name=gdm-password
+	rm -rf debian/gdm/var/lib/gdm/.[cgl]*
+	rm -rf debian/gdm/var/run
+	rm -rf debian/gdm/usr/include
+	rm -rf debian/gdm/usr/lib/pkgconfig
 
-DEB_DH_SYSTEMD_ENABLE_ARGS_gdm3 := --no-act
-DEB_DH_SYSTEMD_START_ARGS_gdm3 := --no-act
+DEB_DH_SYSTEMD_ENABLE_ARGS_gdm := --no-act
+DEB_DH_SYSTEMD_START_ARGS_gdm := --no-act
 
 INFILES := $(wildcard debian/*.desktop.in)
 OUTFILES := $(INFILES:.desktop.in=.desktop)
@@ -93,7 +93,7 @@ OUTFILES := $(INFILES:.desktop.in=.desktop)
 %.desktop: %.desktop.in
 	intltool-merge -d debian/po-up $< $@
 
-build/gdm3:: $(OUTFILES)
+build/gdm:: $(OUTFILES)
 
 MANPAGES := $(patsubst %.pod,%,$(wildcard debian/*.pod))
 common-build-arch:: $(MANPAGES)

@@ -1,5 +1,5 @@
 # translation of gdm2.HEAD.po to TAMIL
-# Tamil translation of gdm3.
+# Tamil translation of gdm.
 # Copyright (C) 2001, 2004, 2006, 2007 Free Software Foundation, Inc.
 #
 # Dinesh Nadarajah <n_dinesh@yahoo.com>, 2001.

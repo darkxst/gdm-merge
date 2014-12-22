@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xdm 1.0\n"
-"Report-Msgid-Bugs-To: gdm3@packages.debian.org\n"
+"Report-Msgid-Bugs-To: gdm@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-11 23:23+0200\n"
 "PO-Revision-Date: 2007-03-23 09:46+0530\n"
 "Last-Translator: Praveen|പ്രവീണ്‍ A|എ <pravi.a@gmail.com>\n"
@@ -19,13 +19,13 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../gdm3.templates:2001
+#: ../gdm.templates:2001
 msgid "Default display manager:"
 msgstr "ഡിഫാള്‍ട്ടായി വേണ്ട പ്രദര്‍ശന മാനേജര്‍:"
 
 #. Type: select
 #. Description
-#: ../gdm3.templates:2001
+#: ../gdm.templates:2001
 msgid ""
 "A display manager is a program that provides graphical login capabilities "
 "for the X Window System."
@@ -35,7 +35,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../gdm3.templates:2001
+#: ../gdm.templates:2001
 msgid ""
 "Only one display manager can manage a given X server, but multiple display "
 "manager packages are installed. Please select which display manager should "
@@ -47,7 +47,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../gdm3.templates:2001
+#: ../gdm.templates:2001
 msgid ""
 "Multiple display managers can run simultaneously if they are configured to "
 "manage different servers; to achieve this, configure the display managers "
