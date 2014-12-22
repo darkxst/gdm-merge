@@ -1,3 +1,55 @@
+gdm (3.14.1-3ubuntu1) UNRELEASED; urgency=medium
+
+  * Merge from Debian, Remaining changes:
+    + Rename packaging back to gdm
+    + README.Debian: update for correct paths in Ubuntu
+    + Use upstream Xsession sript
+    + control.in:
+      - rename gir package to gir1.2-gdm-1.0
+      - Drop recommends on desktop-base
+      - recommend adwaita-icon-theme instead of gnome-icon-theme
+      - depend on bash for ubuntu_config_error_dialog.patch
+    + rules:
+      - drop configure flags used for debian rename
+      - override of dh_installinit with --no-start to avoid session being killed
+    + gdm.8.pod: update path to config file
+    + rename gir1.2-gdm-1.0.install
+    + greeter.dconf-defaults: comment out everything
+    + Move schema file to libgdm
+      - gnome-shell requires direct access to this now.
+    + add debian/gdm.upstart
+    + gdm.init: use default pid file
+    + gdm.preinst: Remove obsolete dconf files
+    + rename user and group back to gdm
+    + gdm.postrm: remove old pam files
+    + gdm.postinst:
+      - create nopasswdlogin group
+      - don't kill gdm on upgrade
+    + ubuntu_run_xsession.d.patch
+    + ubuntu_upstart_event.patch: 
+      - emit upstart events
+    + ubuntu_xresources_is_a_dir.patch
+       when running systemd init
+    + ubuntu_nvidia_prime.patch:
+      - Add hook to run prime-offload (as root) and prime-switch if
+        nvidia-prime is installed (LP: #1262068)
+    + revert_override_LANG_with_accountservices.patch:
+      - On Ubuntu accountservices only stores the language and not the
+        full locale as needed by LANG.
+    + ubuntu_config_error_dialog.patch:
+      - Show warning dialog in case of error in ~/.profile etc. and
+        don't let a syntax error make the login fail (LP: #678421).
+    + 08_frequent-users_greeter.patch: Dropped, this is handled by gnome-shell
+    + 09_default_session.patch:
+      - Dropped, all the other Ubuntu flavors use LightDM and it only          takes a gsettings override to set a different default session
+    + 16_xserver_path.patch: dropped
+    + drop patches that hack VT switching
+     on upgrade
+
+  * Drop onboard, there is a built in screen keyboard provided by gnome-shell 
+
+ -- Tim Lunn <tim@feathertop.org>  Tue, 23 Dec 2014 08:17:26 +1100
+
 gdm (3.14.1-3) unstable; urgency=medium
 
   * 18_all_displays_transient.patch: fix autologin for the initial 
