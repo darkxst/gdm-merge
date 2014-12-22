@@ -22,9 +22,9 @@
 
 # Login manager options
 # =====================
-[org/gnome/login-screen]
-logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'
-fallback-logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'
+#[org/gnome/login-screen]
+#logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'
+#fallback-logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'
 
 # - Disable user list
 # disable-user-list=true
