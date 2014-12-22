@@ -64,8 +64,6 @@ endif
 DEB_DH_INSTALLINIT_ARGS := --noscripts --no-start
 
 binary-install/gdm::
-	mv debian/gdm/usr/sbin/gdm debian/gdm/usr/sbin/gdm
-	chmod 755 debian/gdm/etc/gdm/Xsession
 	chmod 755 debian/gdm/usr/share/gdm/generate-config
 	dh_installpam -pgdm --name=gdm-autologin
 	dh_installpam -pgdm --name=gdm-launch-environment
